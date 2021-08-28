@@ -4,7 +4,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.get("/",git init function (req, res) {
+// app.get("/", function (req, res) {
 //     res.send("<h1>Topページ</h1>");
 // });
 
@@ -17,13 +17,15 @@ app.post("/api/v1/quiz", function (req, res) {
     }
 });
 
-app.get("/api/v1/users", function (req, res) {
+app.get("/api/v1/users", function (req, res) {  
     res.send({
         name: "Mike",
         age: 30
     });
 });
 
-app.listen(3000, function() {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function() {
     console.log("I am running!");
 });
